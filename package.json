@@ -1,0 +1,11 @@
+{
+  "name": "rpi-lenkun-clock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/unstabler/rpi-lenkun-clock",
+  "author": "Gyuhwan Park (unstabler@unstabler.pl)",
+  "license": "CC0",
+  "dependencies": {
+    "node-sdl2": "^2.1.2"
+  }
+}
