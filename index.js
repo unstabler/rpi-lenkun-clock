@@ -31,13 +31,13 @@ const draw = () => {
 };
 
 
-function renderText(render, text, x, y) {
-    let baseY = 0;
+function renderText(render, text, x, y, color = 0x000000) {
+    let offsetY = 0;
     text.split("\n").forEach((line) => {
-        const fontSize = font.getSize(line);
-        const text = font.blend(line, 0x000000);
-        render.copy(text.texture(render), null, [x, baseY + y, fontSize.w, fontSize.h]);
-	baseY += fontSize.h;
+        const textSize = font.getSize(line);
+        const text = font.blend(line, color);
+        render.copy(text.texture(render), null, [x, y + offsetY, textSize.w, textSize.h]);
+        offsetY += textSize.h;
     });
 }
 
