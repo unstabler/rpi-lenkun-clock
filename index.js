@@ -26,10 +26,20 @@ const draw = () => {
     const fontSize = font.getSize(currentTime);
     const text = font.blend(currentTime, 0xffffff);
     render.copy(text.texture(render), null, [outputSize.w - fontSize.w - 8, 0, fontSize.w, fontSize.h]);
-    
     // 새 프레임 렌더
     render.present();
 };
+
+
+function renderText(render, text, x, y) {
+    let baseY = 0;
+    text.split("\n").forEach((line) => {
+        const fontSize = font.getSize(line);
+        const text = font.blend(line, 0x000000);
+        render.copy(text.texture(render), null, [x, baseY + y, fontSize.w, fontSize.h]);
+	baseY += fontSize.h;
+    });
+}
 
 mainWindow.on('close', () => {
     Application.quit();
